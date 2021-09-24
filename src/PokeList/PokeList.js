@@ -11,11 +11,9 @@ export default class PokeList extends Component {
                     ? <div>Loading</div>
                     : this.props.pokeList.map(poke => 
                     <PokeItem 
-                       pokemon={poke.pokemon}
-                       url_image={poke.url_image}
+                        {...poke}
                     />
                     )
-
                 }
             </ul>
         )
