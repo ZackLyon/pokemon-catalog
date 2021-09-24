@@ -1,0 +1,32 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+ul {
+    list-style-type: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+h6 {
+    font-size: 1.3em;
+}
+
+.pokemon-image {
+    width: 30vw;
+    height: 30vh;
+    margin-bottom: -10px;
+}
+
+.pokemon-name {
+    padding-bottom: 2vw;
+    text-transform: uppercase;
+}
+
+.pokemon-container {
+    color: white;
+    background-image: linear-gradient(black,red);
+    margin: 3vw;
+}
