@@ -17,8 +17,8 @@ h6 {
 }
 
 .pokemon-image {
-    width: 30vw;
-    height: 40vh;
+    width: 20vw;
+    height: 30vh;
     object-fit: contain;
     margin-bottom: -2vw;
 }
