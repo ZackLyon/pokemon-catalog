@@ -3,6 +3,7 @@
     /* padding-bottom: 2vw; */
     border-bottom: solid black 1vw;
     width: 100vw;
+    height: 15vw;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -20,7 +21,7 @@ form {
 }
 
 h1 {
-    font-size: 10vw;
+    font-size: 7vw;
     margin-left: 3vw;
     margin-right: 3vw;
     text-shadow: .2vw .2vw .5vw rgba(255, 255, 255, 0.671);

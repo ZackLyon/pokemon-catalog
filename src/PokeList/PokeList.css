@@ -33,6 +33,14 @@ h6 {
     color: white;
     background-image: linear-gradient(black,red);
     margin: 3vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+a {
+    text-decoration: none;
 }
 
 .pokemon-container :last-child {

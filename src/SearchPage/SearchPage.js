@@ -52,7 +52,6 @@ export default class SearchPage extends Component {
     }
 
     render() {
-        const placeholderString = `Search by ${this.state.searchBy}`
 
         return (
             <div>
@@ -61,7 +60,7 @@ export default class SearchPage extends Component {
                     <form onSubmit={this.handleSubmit}>
                         <div className="form-part">{/* search area  */}
 
-                            <input onChange={this.handleQuery} placeholder={placeholderString} className="add-shadow"/>
+                            <input onChange={this.handleQuery} placeholder={`Search by ${this.state.searchBy}`} className="add-shadow"/>
 
                             <Dropdown 
                                 options={
