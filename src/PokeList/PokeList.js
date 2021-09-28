@@ -12,6 +12,7 @@ export default class PokeList extends Component {
                     : this.props.pokeList.map(poke => 
                     <PokeItem 
                         {...poke}
+                        key={poke.id}
                     />
                     )
                 }

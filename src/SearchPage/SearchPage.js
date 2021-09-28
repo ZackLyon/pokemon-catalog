@@ -11,6 +11,7 @@ export default class SearchPage extends Component {
         searchBy: 'pokemon',
         sortDirection: 'asc',
         sortBy: 'pokemon',
+        page: 1,
         pokeList: [], 
         isLoading: false
     }
@@ -24,35 +25,47 @@ export default class SearchPage extends Component {
         this.setState({query: e.target.value})
     }
 
-    handleSubmit = (e) => {
+    handleSubmit = async (e) => {
         e.preventDefault();
-        this.fetchPokemon();
+        await this.setState({page: 1});
+        await this.fetchPokemon();
     }
 
     handleSortDirection = (e) => {
         this.setState({sortDirection: e.target.value})
     }
    
-    handleSortBy= (e) => {
+    handleSortBy = (e) => {
         this.setState({sortBy: e.target.value})
     }
     
-    handleSearchBy= (e) => {
+    handleSearchBy = (e) => {
         this.setState({searchBy: e.target.value})
     }
+
+    handleNextClick = async () => {
+        await this.setState({page: this.state.page + 1})
+        await this.fetchPokemon();
+    }
+
+    handlePrevClick = async () => {
+        await this.setState({page: this.state.page - 1})
+        await this.fetchPokemon();
+    }
+
 
     fetchPokemon = async () => {
         // loading when waiting for results, switch back to not loading on response
         this.setState({ isLoading: true })
 
         // modify querystring to send back results based on user input stored in state
-        const response =  await request.get(`https://pokedex-alchemy.herokuapp.com/api/pokedex?${this.state.searchBy}=${this.state.query}&sort=${this.state.sortBy}&direction=${this.state.sortDirection}`)
+        const response =  await request.get(`https://pokedex-alchemy.herokuapp.com/api/pokedex?${this.state.searchBy}=${this.state.query}&sort=${this.state.sortBy}&direction=${this.state.sortDirection}&page=${this.state.page}&perPage=20`)
     
         this.setState({ pokeList: response.body.results, isLoading: false })
+
     }
 
     render() {
-        const placeholderString = `Search by ${this.state.searchBy}`
 
         return (
             <div>
@@ -61,7 +74,7 @@ export default class SearchPage extends Component {
                     <form onSubmit={this.handleSubmit}>
                         <div className="form-part">{/* search area  */}
 
-                            <input onChange={this.handleQuery} placeholder={placeholderString} className="add-shadow"/>
+                            <input onChange={this.handleQuery} placeholder={`Search by ${this.state.searchBy}`} className="add-shadow"/>
 
                             <Dropdown 
                                 options={
@@ -109,6 +122,21 @@ export default class SearchPage extends Component {
                         <button type="submit">Submit</button>
                     </form>
                     <h1>Monsters</h1>
+                </div>
+                <div className="page-navigation">
+                    {
+                        (this.state.page === 1)
+                        ? <button className="inactive-button">Previous</button>
+                        : <button onClick={this.handlePrevClick}>Previous</button>
+                    }
+                    
+                    {
+                    (this.state.pokeList.length === 20)
+                    ? <button onClick={this.handleNextClick}>Next</button>
+                    : <button className="inactive-button">Next</button>
+                    } 
+                    <div>Current Page: {this.state.page}</div>
+                        
                 </div>
 
                 {/* render pokemon or loading ball here */}
