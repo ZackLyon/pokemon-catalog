@@ -9,13 +9,13 @@
 }
 
 img {
-    width: 50vw;
+   height: 50vh;
     
 }
 
 .stats-container {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     padding: 2rem;
     font-size: 3rem;
     color: white;
@@ -25,5 +25,11 @@ img {
     margin-left: 3rem;
     margin-right: 3rem;
     margin-bottom: 1rem;
-
+    text-align: center;
+    color: black;
+    background-color: white;
+    padding: .5vw;
+    margin: .5vw;
+    border: black 2px solid;
+    box-shadow: 0 0 7px 3px white;
 }

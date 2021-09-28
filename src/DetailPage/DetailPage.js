@@ -39,7 +39,7 @@ export default class DetailPage extends Component {
                         <div className="stats-container" style={{backgroundColor: this.state.pokemon.color_1}}>
                             <div>Attack: {this.state.pokemon.attack}</div>
                             <div>Special Attack: {this.state.pokemon.special_attack}</div>
-                            <div>Defense: {this.state.pokemon.Defense}</div>
+                            <div>Defense: {this.state.pokemon.defense}</div>
                             <div>Special Defense: {this.state.pokemon.special_defense}</div>
                             <div>Ability 1: {this.state.pokemon.ability_1}</div>
                             {(this.state.pokemon.ability_2 !== "NA")? <div>Ability 2: {this.state.pokemon.ability_1}</div> : false}

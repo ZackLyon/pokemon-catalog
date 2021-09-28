@@ -20,7 +20,7 @@ h6 {
     width: 20vw;
     height: 30vh;
     object-fit: contain;
-    margin-bottom: -2vw;
+    margin-bottom: -1vw;
 }
 
 .pokemon-name {
@@ -37,20 +37,20 @@ h6 {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    height: 50vh;
+    padding-bottom: 2vh;
+    padding-top: 2vh;
 }
 
 a {
     text-decoration: none;
 }
 
-.pokemon-container :last-child {
-    padding-bottom: 1vw;
-}
-
 .attribute-container {
     display: flex;
     justify-content: center;
     color: black;
+
 }
 
 .attribute-container > h6 {
